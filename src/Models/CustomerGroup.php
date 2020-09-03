@@ -4,7 +4,7 @@ namespace Modules\Customer\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class CustomerGroup extends Model
 {
-    //
+    protected $table = 'customer__groups';
 }
