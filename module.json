@@ -1,0 +1,8 @@
+{
+    "name": "Catalog",
+    "namespace": "Modules\\Customer\\",
+    "description": "This is module catalog",
+    "provider": [
+        "Modules\\Customer\\CustomerServiceProvider"
+    ]
+}

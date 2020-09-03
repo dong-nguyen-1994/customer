@@ -1,0 +1,36 @@
+{
+    "name": "dnsoft/module-customer",
+    "description": "Module Customer",
+    "keywords": [
+        "dnsoft",
+        "customer",
+        "module"
+    ],
+    "homepage": "https://newnet.vn",
+    "support" : {
+        "email" : "support@dnsoft.vn"
+    },
+    "authors": [
+        {
+            "name": "Dong Nguyen",
+            "email": "dong.joseph2810@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Catalog\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Customer\\CustomerServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
