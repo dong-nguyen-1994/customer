@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Catalog\\": "/src"
+            "Modules\\Customer\\": "/src"
         }
     },
     "extra": {
