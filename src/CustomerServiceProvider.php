@@ -3,7 +3,9 @@
 namespace Modules\Customer;
 
 use Dnsoft\Acl\Facades\Permission;
+use Dnsoft\Core\Events\CoreAdminMenuRegistered;
 use Dnsoft\Core\Support\BaseModuleServiceProvider;
+use Illuminate\Support\Facades\Event;
 use Modules\Customer\Models\Customer;
 use Modules\Customer\Models\CustomerAddress;
 use Modules\Customer\Models\CustomerGroup;
@@ -38,6 +40,8 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
         });
 
         $this->registerPermissions();
+
+        $this->registerAdminMenu();
     }
 
     protected function registerPermissions()
@@ -46,5 +50,13 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
         Permission::add('customer.create', __('customer::permission.customer.create'));
         Permission::add('customer.edit', __('customer::permission.customer.edit'));
         Permission::add('customer.destroy', __('customer::permission.customer.destroy'));
+    }
+
+    public function registerAdminMenu()
+    {
+        Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
+            $menu->add('Customer',    ['url'  => 'page.about', 'id' => 'customer']);
+            $menu->add('Customer Group', ['url' => 'Link address', 'parent' => $menu->customer->id]);
+        });
     }
 }
