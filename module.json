@@ -1,7 +1,7 @@
 {
-    "name": "Catalog",
+    "name": "Customer",
+    "description": "Customer",
     "namespace": "Modules\\Customer\\",
-    "description": "This is module catalog",
     "providers": [
         "Modules\\Customer\\CustomerServiceProvider"
     ]

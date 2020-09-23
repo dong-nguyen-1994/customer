@@ -17,13 +17,17 @@ class CreateCustomerCustomersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('group_id')->nullable();
             $table->string('prefix', 40)->nullable()->comment('e.g.: Mr, Mrs, Miss,...');
+            $table->string('name')->nullable()->comment('Full Name');
             $table->string('firstname')->nullable();
+            $table->string('middlename')->nullable();
             $table->string('lastname')->nullable();
             $table->string('email')->nullable();
             $table->string('phone', 20)->nullable();
             $table->boolean('is_active')->default(true);
             $table->date('birthday')->nullable();
             $table->string('gender')->nullable();
+            $table->unsignedBigInteger('billing_address_id')->nullable()->comment('Default Billing Address ID');
+            $table->unsignedBigInteger('shipping_address_id')->nullable()->comment('Default Shipping Address ID');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();

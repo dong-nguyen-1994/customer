@@ -1,23 +1,25 @@
 {
-    "name": "dnsoft/module-customer",
+    "name": "newnet/module-customer",
     "description": "Module Customer",
     "keywords": [
-        "dnsoft",
-        "customer",
+        "newnet",
         "module"
     ],
     "homepage": "https://newnet.vn",
     "support" : {
-        "email" : "support@dnsoft.vn"
+        "email" : "support@newnet.vn"
     },
     "authors": [
         {
-            "name": "Dong Nguyen",
-            "email": "dong.joseph2810@gmail.com"
+            "name": "Kim Nguyen",
+            "email": "kimtrien@gmail.com"
         }
     ],
     "type": "library",
     "require": {
+        "newnet/core": "^2.0",
+        "newnet/module-zone": "^2.0",
+        "newnet/eav": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -27,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Customer\\CustomerServiceProvider"
+                "Modules\\Customer\\ModuleServiceProvider"
             ]
         }
     },

@@ -7,4 +7,5 @@ use Modules\Customer\Repositories\CustomerAddressRepositoryInterface;
 
 class CustomerAddressRepository extends BaseRepository implements CustomerAddressRepositoryInterface
 {
+
 }

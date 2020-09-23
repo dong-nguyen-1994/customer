@@ -18,7 +18,9 @@ class CreateCustomerAddressesTable extends Migration
         Schema::create('customer__addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
+            $table->string('name')->nullable()->comment('Full Name');
             $table->string('firstname')->nullable();
+            $table->string('middlename')->nullable();
             $table->string('lastname')->nullable();
             $table->string('email')->nullable();
             $table->string('phone', 20)->nullable();

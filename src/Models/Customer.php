@@ -2,9 +2,133 @@
 
 namespace Modules\Customer\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+//use Newnet\Eav\Traits\HasAttributeTrait;
+//use Newnet\Media\Traits\HasMediaTrait;
 
-class Customer extends Model
+/**
+ * Modules\Customer\Models\Customer
+ *
+ * @property int $id
+ * @property int|null $group_id
+ * @property string|null $prefix e.g.: Mr, Mrs, Miss,...
+ * @property string|null $name Full Name
+ * @property string|null $firstname
+ * @property string|null $middlename
+ * @property string|null $lastname
+ * @property string|null $email
+ * @property string|null $phone
+ * @property bool $is_active
+ * @property \Illuminate\Support\Carbon|null $birthday
+ * @property string|null $gender
+ * @property int|null $billing_address_id Default Billing Address ID
+ * @property int|null $shipping_address_id Default Shipping Address ID
+ * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property string|null $password
+ * @property string|null $remember_token
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Customer\Models\Address[] $addresses
+ * @property-read int|null $addresses_count
+ * @property-read \Modules\Customer\Models\Group|null $group
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read int|null $notifications_count
+ * @property-read \Modules\ZoneModule\Models\ZoneProvince $province
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereBillingAddressId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereBirthday($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereFirstname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereGroupId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereLastname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereMiddlename($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer wherePrefix($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereShippingAddressId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+class Customer extends Authenticatable implements MustVerifyEmail
 {
-    //
+    use Notifiable;
+//    use HasAttributeTrait;
+//    use HasMediaTrait;
+
+    protected $table = 'customer__customers';
+
+    protected $fillable = [
+        'group_id',
+        'prefix',
+        'name',
+        'firstname',
+        'middlename',
+        'lastname',
+        'email',
+        'phone',
+        'password',
+        'is_active',
+        'birthday',
+        'gender',
+        'avatar',
+    ];
+
+    protected $casts = [
+        'is_active'         => 'boolean',
+        'email_verified_at' => 'datetime',
+    ];
+
+    protected $dates = [
+        'birthday',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value ?: implode(' ', [$this->firstname, $this->middlename, $this->lastname]);
+    }
+
+    public function getNameAttribute($value)
+    {
+        return $value ?: implode(' ', [$this->firstname, $this->middlename, $this->lastname]);
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
+    public function setAvatarAttribute($value)
+    {
+        $this->mediaAttributes['avatar'] = $value;
+    }
+
+    public function getAvatarAttribute()
+    {
+        if ($this->hasMedia('avatar')) {
+            return $this->getFirstMedia('avatar');
+        }
+
+        return config('customer.default_avatar') ?: asset('vendor/newnet-admin/dist/img/avatar-1.jpg');
+    }
 }
