@@ -1,8 +1,8 @@
 {
     "name": "Customer",
     "description": "Customer",
-    "namespace": "Modules\\Customer\\",
+    "namespace": "Module\\Customer\\",
     "providers": [
-        "Modules\\Customer\\CustomerServiceProvider"
+        "Module\\Customer\\CustomerServiceProvider"
     ]
 }

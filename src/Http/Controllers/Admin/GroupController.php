@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers\Admin;
+namespace Module\Customer\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
-use Modules\Customer\Http\Requests\GroupRequest;
-use Modules\Customer\Repositories\GroupRepositoryInterface;
+use Module\Customer\Http\Requests\GroupRequest;
+use Module\Customer\Repositories\GroupRepositoryInterface;
 
 class GroupController extends Controller
 {

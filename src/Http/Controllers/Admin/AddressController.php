@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers\Admin;
+namespace Module\Customer\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
-use Modules\Customer\Http\Requests\AddressRequest;
-use Modules\Customer\Models\Address;
-use Modules\Customer\Repositories\AddressRepositoryInterface;
+use Module\Customer\Http\Requests\AddressRequest;
+use Module\Customer\Models\Address;
+use Module\Customer\Repositories\AddressRepositoryInterface;
 
 class AddressController extends Controller
 {

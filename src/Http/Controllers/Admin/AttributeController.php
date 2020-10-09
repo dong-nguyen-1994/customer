@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers\Admin;
+namespace Module\Customer\Http\Controllers\Admin;
 
-use Modules\Customer\Models\Customer;
+use Module\Customer\Models\Customer;
 use Newnet\Eav\Support\Http\Controllers\AttributeController as BaseAttributeController;
 
 class AttributeController extends BaseAttributeController

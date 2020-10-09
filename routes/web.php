@@ -1,11 +1,11 @@
 <?php
 
-use Modules\Customer\Http\Controllers\Auth\LoginController;
-use Modules\Customer\Http\Controllers\Auth\ForgotPasswordController;
-use Modules\Customer\Http\Controllers\Auth\ResetPasswordController;
-use Modules\Customer\Http\Controllers\Auth\RegisterController;
-use Modules\Customer\Http\Controllers\Auth\VerificationController;
-use Modules\Customer\Http\Controllers\Web\ProfileController;
+use Module\Customer\Http\Controllers\Auth\LoginController;
+use Module\Customer\Http\Controllers\Auth\ForgotPasswordController;
+use Module\Customer\Http\Controllers\Auth\ResetPasswordController;
+use Module\Customer\Http\Controllers\Auth\RegisterController;
+use Module\Customer\Http\Controllers\Auth\VerificationController;
+use Module\Customer\Http\Controllers\Web\ProfileController;
 
 Route::prefix('customer')->middleware(['web'])
     ->group(function () {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers\Auth;
+namespace Module\Customer\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;

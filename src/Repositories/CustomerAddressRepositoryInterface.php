@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Customer\Repositories;
+namespace Module\Customer\Repositories;
 
 use Dnsoft\Core\Repositories\BaseRepositoryInterface;
 

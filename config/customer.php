@@ -1,6 +1,6 @@
 <?php
 
-use Modules\Customer\Models\Customer;
+use Module\Customer\Models\Customer;
 
 return [
     /*

@@ -1,25 +1,25 @@
 <?php
 
-namespace Modules\Customer;
+namespace Module\Customer;
 
 use Dnsoft\Core\Events\CoreAdminMenuRegistered;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Event;
-use Modules\Customer\Events\CustomerAdminMenuRegistered;
-use Modules\Customer\Http\Middleware\Authenticate;
-use Modules\Customer\Http\Middleware\RedirectIfAuthenticated;
-use Modules\Customer\Models\Address;
-use Modules\Customer\Models\Group;
-use Modules\Customer\Repositories\CustomerAddressRepositoryInterface;
-use Modules\Customer\Repositories\Eloquents\CustomerAddressRepository;
-use Modules\Customer\Repositories\Eloquents\CustomerGroupRepository;
-use Modules\Customer\Repositories\GroupRepositoryInterface;
+use Module\Customer\Events\CustomerAdminMenuRegistered;
+use Module\Customer\Http\Middleware\Authenticate;
+use Module\Customer\Http\Middleware\RedirectIfAuthenticated;
+use Module\Customer\Models\Address;
+use Module\Customer\Models\Group;
+use Module\Customer\Repositories\CustomerAddressRepositoryInterface;
+use Module\Customer\Repositories\Eloquents\CustomerAddressRepository;
+use Module\Customer\Repositories\Eloquents\CustomerGroupRepository;
+use Module\Customer\Repositories\GroupRepositoryInterface;
 use Dnsoft\Acl\Facades\Permission;
 use Dnsoft\Core\Support\BaseModuleServiceProvider;
-use Modules\Customer\Repositories\Eloquents\CustomerRepository;
-use Modules\Customer\Repositories\CustomerRepositoryInterface;
-use Modules\Customer\Models\Customer;
+use Module\Customer\Repositories\Eloquents\CustomerRepository;
+use Module\Customer\Repositories\CustomerRepositoryInterface;
+use Module\Customer\Models\Customer;
 
 class CustomerServiceProvider extends BaseModuleServiceProvider
 {

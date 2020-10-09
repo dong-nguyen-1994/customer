@@ -74,7 +74,7 @@
                     ['value' => '0', 'label' => __('customer::customer.gender.female')],
                 ]])
 
-                @attributes(['entityType' => \Modules\Customer\Models\Customer::class])
+                @attributes(['entityType' => \Module\Customer\Models\Customer::class])
             </div>
         </div>
     </div>

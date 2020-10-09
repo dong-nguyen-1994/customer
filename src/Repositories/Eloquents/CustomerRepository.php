@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Customer\Repositories\Eloquents;
+namespace Module\Customer\Repositories\Eloquents;
 
 use Dnsoft\Core\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Hash;
-use Modules\Customer\Repositories\CustomerRepositoryInterface;
+use Module\Customer\Repositories\CustomerRepositoryInterface;
 
 class CustomerRepository extends BaseRepository implements CustomerRepositoryInterface
 {

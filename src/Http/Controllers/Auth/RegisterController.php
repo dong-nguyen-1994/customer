@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers\Auth;
+namespace Module\Customer\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Modules\Customer\Models\Customer;
+use Module\Customer\Models\Customer;
 
 class RegisterController extends Controller
 {

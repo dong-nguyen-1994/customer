@@ -1,9 +1,9 @@
 <?php
 
-use Modules\Customer\Http\Controllers\Admin\CustomerController;
-use Modules\Customer\Http\Controllers\Admin\AddressController;
-use Modules\Customer\Http\Controllers\Admin\GroupController;
-use Modules\Customer\Http\Controllers\Admin\AttributeController;
+use Module\Customer\Http\Controllers\Admin\CustomerController;
+use Module\Customer\Http\Controllers\Admin\AddressController;
+use Module\Customer\Http\Controllers\Admin\GroupController;
+use Module\Customer\Http\Controllers\Admin\AttributeController;
 
 Route::prefix('customer')->group(function () {
     Route::prefix('customer')->group(function () {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Customer\Http\Middleware;
+namespace Module\Customer\Http\Middleware;
 
 use Illuminate\Auth\AuthenticationException;
 

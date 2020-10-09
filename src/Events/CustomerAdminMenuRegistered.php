@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Customer\Events;
+namespace Module\Customer\Events;
 
 class CustomerAdminMenuRegistered
 {

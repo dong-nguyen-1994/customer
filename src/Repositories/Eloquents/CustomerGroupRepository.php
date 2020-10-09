@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Customer\Repositories\Eloquents;
+namespace Module\Customer\Repositories\Eloquents;
 
 use Dnsoft\Core\Repositories\BaseRepository;
-use Modules\Customer\Repositories\GroupRepositoryInterface;
+use Module\Customer\Repositories\GroupRepositoryInterface;
 
 class CustomerGroupRepository extends BaseRepository implements GroupRepositoryInterface
 {

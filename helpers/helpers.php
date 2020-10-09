@@ -4,7 +4,7 @@ if (!function_exists('get_customer_group_options')) {
     function get_customer_group_options()
     {
         $options = [];
-        $groups = \Modules\Customer\Models\Group::all();
+        $groups = \Module\Customer\Models\Group::all();
         foreach ($groups as $item) {
             $options[] = [
                 'value' => $item->id,
@@ -20,7 +20,7 @@ if (!function_exists('get_customer_options')) {
     function get_customer_options()
     {
         $options = [];
-        $customers = \Modules\Customer\Models\Customer::all();
+        $customers = \Module\Customer\Models\Customer::all();
         foreach ($customers as $item) {
             $options[] = [
                 'value' => $item->id,

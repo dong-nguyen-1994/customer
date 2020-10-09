@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Customer\Models;
+namespace Module\Customer\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 //use Newnet\Media\Traits\HasMediaTrait;
 
 /**
- * Modules\Customer\Models\Customer
+ * Module\Customer\Models\Customer
  *
  * @property int $id
  * @property int|null $group_id
@@ -30,34 +30,34 @@ use Illuminate\Notifications\Notifiable;
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Customer\Models\Address[] $addresses
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Module\Customer\Models\Address[] $addresses
  * @property-read int|null $addresses_count
- * @property-read \Modules\Customer\Models\Group|null $group
+ * @property-read \Module\Customer\Models\Group|null $group
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read \Modules\ZoneModule\Models\ZoneProvince $province
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereBillingAddressId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereBirthday($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereFirstname($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereGender($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereGroupId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereLastname($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereMiddlename($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer wherePrefix($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereShippingAddressId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Customer\Models\Customer whereUpdatedAt($value)
+ * @property-read \Module\ZoneModule\Models\ZoneProvince $province
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereBillingAddressId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereBirthday($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereFirstname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereGroupId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereLastname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereMiddlename($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer wherePrefix($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereShippingAddressId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Module\Customer\Models\Customer whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Customer extends Authenticatable implements MustVerifyEmail

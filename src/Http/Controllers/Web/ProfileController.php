@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers\Web;
+namespace Module\Customer\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Customer\Http\Requests\CustomerRequest;
-use Modules\Customer\Repositories\CustomerRepositoryInterface;
+use Module\Customer\Http\Requests\CustomerRequest;
+use Module\Customer\Repositories\CustomerRepositoryInterface;
 
 class ProfileController extends Controller
 {
