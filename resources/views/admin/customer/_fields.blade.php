@@ -50,29 +50,25 @@
     </li>
 </ul>
 
-<div class="tab-content mt-3">
+<div class="tab-content">
     <div class="tab-pane fade show active" id="customerItem">
         <div class="row">
             <div class="col-12 col-md-6">
+                @select(['name' => 'group_id', 'allowClear' => true, 'label' => __('customer::customer.group'), 'options' => get_customer_group_options()])
                 @input(['name' => 'firstname', 'label' => __('customer::customer.first_name')])
                 @input(['name' => 'lastname', 'label' => __('customer::customer.last_name')])
                 @input(['name' => 'email', 'label' => __('customer::customer.email')])
                 @input(['name' => 'phone', 'label' => __('customer::customer.phone')])
-
-                @checkbox(['name' => 'is_active', 'label' => __('customer::customer.is_active'), 'default' => true])
-                @select(['name' => 'group_id', 'allowClear' => true, 'label' => __('customer::customer.group'), 'options' => get_customer_group_options()])
-
-                <hr>
-
-                @input(['name' => 'password', 'label' => __('customer::customer.password'), 'type' => 'password'])
-                @input(['name' => 'password_confirmation', 'label' => __('customer::customer.password_confirmation'), 'type' => 'password'])
+                @checkbox(['name' => 'is_active', 'label' => '', 'placeholder' => __('customer::customer.is_active'), 'default' => true])
             </div>
             <div class="col-12 col-md-6">
-                @mediafile(['name' => 'avatar', 'label' => __('customer::customer.avatar')])
+{{--                @mediafile(['name' => 'avatar', 'label' => __('customer::customer.avatar')])--}}
                 @select(['name' => 'gender', 'allowClear' => false, 'label' => __('customer::customer.gender.label'), 'options' => [
                     ['value' => '1', 'label' => __('customer::customer.gender.male')],
                     ['value' => '0', 'label' => __('customer::customer.gender.female')],
                 ]])
+                @input(['name' => 'password', 'label' => __('customer::customer.password'), 'type' => 'password'])
+                @input(['name' => 'password_confirmation', 'label' => __('customer::customer.password_confirmation'), 'type' => 'password'])
 
                 @attributes(['entityType' => \Module\Customer\Models\Customer::class])
             </div>

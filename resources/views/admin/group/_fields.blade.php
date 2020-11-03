@@ -1,2 +1,2 @@
 @input(['name' => 'name', 'label' => __('customer::group.name')])
-@slug(['name' => 'slug', 'label' => __('customer::group.slug')])
+@slug(['name' => 'slug', 'label' => __('customer::group.slug'), 'field_slug' => 'name'])

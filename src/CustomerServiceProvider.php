@@ -51,6 +51,7 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
         });
 
         require_once __DIR__.'/../helpers/helpers.php';
+
     }
 
     public function boot()
@@ -61,7 +62,12 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
             __DIR__.'/../config/customer.php' => config_path('customer.php'),
         ], 'module-config');
 
+        $this->publishes([
+            __DIR__ . '/../public/customer' => public_path('vendor/customer'),
+        ], 'customer');
+
         $this->registerAdminMenus();
+
 //        eav_entity()->push(Customer::class);
     }
 

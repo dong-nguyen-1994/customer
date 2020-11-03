@@ -9,17 +9,36 @@
             </div>
             <div class="modal-body">
                 <div class="row" style="margin: 5px">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <input id="customer_id" type="hidden" value="{{$item ? $item->id : ''}}" name="customer_id">
                         @select(['name' => 'zone_level_1', 'label' => __('customer::address.province'), 'options' => get_zone_provice_options()])
+                    </div>
+                    <div class="col-lg-6">
                         @select(['name' => 'zone_level_2', 'label' => __('customer::address.district'), 'options' => []])
+                    </div>
+                    <div class="col-lg-6">
                         @select(['name' => 'zone_level_3', 'label' => __('customer::address.township'), 'options' => []])
+                    </div>
+                    <div class="col-lg-6">
                         @input(['name' => 'street_address', 'label' => __('customer::customer.street')])
+                    </div>
+                </div>
+                <div class="row" style="margin: 5px">
+                    <div class="col-lg-6">
                         @input(['name' => 'firstname_address', 'label' => __('customer::customer.first_name')])
+                    </div>
+                    <div class="col-lg-6">
                         @input(['name' => 'lastname_address', 'label' => __('customer::customer.last_name')])
+                    </div>
+                    <div class="col-lg-6">
                         @input(['name' => 'email_address', 'label' => __('customer::customer.email')])
+                    </div>
+                    <div class="col-lg-6">
                         @input(['name' => 'phone_address', 'label' => __('customer::customer.phone')])
                     </div>
+                </div>
+                <div class="row" style="margin: 5px">
+
                 </div>
             </div>
             <div class="modal-footer">

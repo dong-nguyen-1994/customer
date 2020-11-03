@@ -6,16 +6,25 @@
 
 @section('page_subtitle', __('customer::customer.edit.page_subtitle'))
 
-@section('breadcrumb')
-    <nav aria-label="breadcrumb" class="col-sm-4 order-sm-last mb-3 mb-sm-0 p-0 ">
-        <ol class="breadcrumb d-inline-flex font-weight-600 fs-13 bg-white mb-0 float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('customer.admin.customer.index') }}">{{ trans('customer::customer.index.breadcrumb') }}</a></li>
-            <li class="breadcrumb-item active">{{ trans('customer::customer.edit.breadcrumb') }}</li>
-        </ol>
-    </nav>
-@stop
-@assetadd('address-script', asset("vendor/customer/js/admin/address.js"), ['jquery'])
+@section('content-header')
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('customer.admin.customer.index') }}">{{ trans('customer::customer.index.breadcrumb') }}</a></li>
+                        <li class="breadcrumb-item active">{{ trans('customer::customer.edit.breadcrumb') }}</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">{{ __('customer::customer.create.page_title') }}</h4>
+            </div>
+        </div>
+    </div>
+@endsection
+
+{{--@assetadd('address-script', asset("vendor/customer/js/admin/address.js"), ['jquery'])--}}
+
 @section('content')
     <form action="{{ route('customer.admin.customer.update', $item->id) }}" method="POST">
         @method('PUT')
@@ -25,9 +34,9 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h6 class="fs-17 font-weight-600 mb-0">
+                        <h5 class="fs-17 font-weight-600 mb-0">
                             {{ __('customer::customer.edit.page_title') }}
-                        </h6>
+                        </h5>
                     </div>
                     <div class="text-right">
                         <div class="btn-group">
