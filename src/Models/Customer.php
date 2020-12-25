@@ -5,8 +5,8 @@ namespace Module\Customer\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-//use Newnet\Eav\Traits\HasAttributeTrait;
-//use Newnet\Media\Traits\HasMediaTrait;
+use Dnsoft\Eav\Traits\HasAttributeTrait;
+use Dnsoft\Media\Traits\HasMediaTrait;
 
 /**
  * Module\Customer\Models\Customer
@@ -63,8 +63,8 @@ use Illuminate\Notifications\Notifiable;
 class Customer extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-//    use HasAttributeTrait;
-//    use HasMediaTrait;
+    use HasAttributeTrait;
+    use HasMediaTrait;
 
     protected $table = 'customer__customers';
 
@@ -129,6 +129,6 @@ class Customer extends Authenticatable implements MustVerifyEmail
             return $this->getFirstMedia('avatar');
         }
 
-        return config('customer.default_avatar') ?: asset('vendor/newnet-admin/dist/img/avatar-1.jpg');
+        return config('customer.default_avatar') ?: asset('vendor/dnsoft/dist/img/avatar-1.jpg');
     }
 }

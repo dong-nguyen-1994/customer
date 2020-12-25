@@ -1,25 +1,24 @@
 {
-    "name": "newnet/module-customer",
+    "name": "dnsoft/module-customer",
     "description": "Module Customer",
     "keywords": [
-        "newnet",
         "module"
     ],
-    "homepage": "https://newnet.vn",
+    "homepage": "https://dnguyen.xyz",
     "support" : {
-        "email" : "support@newnet.vn"
+        "email" : "dong.joseph2810@gmail.com"
     },
     "authors": [
         {
-            "name": "Kim Nguyen",
-            "email": "kimtrien@gmail.com"
+            "name": "Dong Nguyen",
+            "email": "dong.joseph2810@gmail.com"
         }
     ],
     "type": "library",
     "require": {
-        "newnet/core": "^2.0",
-        "newnet/module-zone": "^2.0",
-        "newnet/eav": "^2.0"
+        "dnsoft/core": "dev-master",
+        "dnsoft/module-zone": "dev-master",
+        "dnsoft/eav": "dev-master"
     },
     "autoload": {
         "psr-4": {
