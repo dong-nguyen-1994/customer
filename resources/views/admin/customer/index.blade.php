@@ -2,10 +2,6 @@
 
 @section('meta_title', __('customer::customer.index.page_title'))
 
-@section('page_title', __('customer::customer.index.page_title'))
-
-@section('page_subtitle', __('customer::customer.index.page_subtitle'))
-
 @section('content-header')
     <div class="row">
         <div class="col-12">
@@ -16,47 +12,44 @@
                         <li class="breadcrumb-item active">{{ __('customer::customer.index.page_title') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">{{ __('customer::customer.index.page_title') }}</h4>
+                <h4 class="page-title">{{ __('customer::customer.create.page_title') }}</h4>
             </div>
         </div>
     </div>
 @endsection
 
 @section('content')
-    <div class="main-content">
-
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row mb-2">
-                            <div class="col-sm-4">
-                                <div class="search-box mr-2 mb-2 d-inline-block">
-                                    <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <i class="bx bx-search-alt search-icon"></i>
-                                    </div>
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="mb-2">
+                        <div class="row">
+                            <div class="col-12 text-sm-center form-inline">
+                                <div class="form-group mr-2">
+                                    <a id="demo-btn-addrow" class="btn btn-primary" href="{{ route('customer.admin.customer.create') }}"><i class="mdi mdi-plus-circle mr-2"></i> Add New</a>
+                                </div>
+                                <div class="form-group">
+                                    <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
                                 </div>
                             </div>
-                            <div class="col-sm-8">
-                                <div class="text-sm-right">
-                                    <a href="{{ route('customer.admin.customer.create') }}" class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"><i class="mdi mdi-plus mr-1"></i> New Customers</a>
-                                </div>
-                            </div><!-- end col-->
                         </div>
-
-                        <div class="table-responsive">
-                            <table class="table table-centered table-nowrap">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>{{ __('customer::customer.name') }}</th>
-                                    <th>{{ __('customer::customer.phone') }} / {{ __('customer::customer.email') }}</th>
-                                    <th>{{ __('customer::customer.created_at') }}</th>
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                @foreach($items as $item)
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-centered table-striped table-bordered mb-0 toggle-circle">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>{{ __('customer::customer.name') }}</th>
+                                <th>{{ __('customer::customer.phone') }} / {{ __('customer::customer.email') }}</th>
+                                <th>{{ __('customer::customer.is_active') }}</th>
+                                <th>{{ __('customer::customer.created_at') }}</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($items as $item)
                                 <tr>
                                     <td>
                                         <div class="custom-control custom-checkbox">
@@ -73,40 +66,41 @@
                                         <p class="mb-1">{{ $item->phone }}</p>
                                         <p class="mb-0">{{ $item->email }}</p>
                                     </td>
+                                    <td>
+                                        @if($item->is_active)
+                                            <i class="fas fa-check text-success"></i>
+                                        @else
+                                            <i class="far fa-times-circle" style="color: red"></i>
+                                        @endif
+                                    </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td class="text-right">
+
+                                        @admincan('customer.admin.customer.edit')
                                         <a href="{{ route('customer.admin.customer.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
-                                            <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -6px; margin-top: 4px"></i>
+                                            <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -5px; margin-top: 5px"></i>
                                         </a>
+                                        @endadmincan
+
+                                        @admincan('customer.admin.customer.destroy')
                                         <button-delete url-delete="{{ route('customer.admin.customer.destroy', $item->id) }}"></button-delete>
+                                        @endadmincan
                                     </td>
                                 </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <div class="float-right">
+                            {{ $items->links() }}
                         </div>
-                        <ul class="pagination pagination-rounded justify-content-end mb-2">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="javascript: void(0);" aria-label="Previous">
-                                    <i class="mdi mdi-chevron-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="javascript: void(0);">1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="javascript: void(0);" aria-label="Next">
-                                    <i class="mdi mdi-chevron-right"></i>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
+                <!-- /.card -->
             </div>
         </div>
-        <!-- End Page-content -->
     </div>
 
     <div class="modal fade" id="deleteImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -127,7 +121,9 @@
             </div>
         </div>
     </div>
+
 @stop
+
 
 @push('scripts')
     <script>
