@@ -24,7 +24,8 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('customer.admin.group.update', $item->id) }}" method="POST">
+    <div class="mr-2 ml-2">
+        <form action="{{ route('customer.admin.group.update', $item->id) }}" method="POST">
         @method('PUT')
         @csrf
 
@@ -55,4 +56,5 @@
             </div>
         </div>
     </form>
+    </div>
 @stop

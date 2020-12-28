@@ -26,7 +26,8 @@
 {{--@assetadd('address-script', asset("vendor/customer/js/admin/address.js"), ['jquery'])--}}
 
 @section('content')
-    <form action="{{ route('customer.admin.customer.update', $item->id) }}" method="POST">
+    <div class="mr-2 ml-2">
+        <form action="{{ route('customer.admin.customer.update', $item->id) }}" method="POST">
         @method('PUT')
         @csrf
 
@@ -58,5 +59,6 @@
         </div>
 
     </form>
+    </div>
     @include('customer::admin.customer.modals.delete')
 @stop
