@@ -2,6 +2,7 @@
 
 namespace Module\Customer\Http\Controllers\Admin;
 
+use Dnsoft\Core\Facades\MenuAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
@@ -29,6 +30,7 @@ class CustomerController extends Controller
 
     public function create()
     {
+        MenuAdmin::activeMenu('customer');
         return view('customer::admin.customer.create');
     }
 
@@ -49,6 +51,7 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
+        MenuAdmin::activeMenu('customer');
         $item = $this->customerRepository->find($id);
 
         return view('customer::admin.customer.edit', compact('item'));

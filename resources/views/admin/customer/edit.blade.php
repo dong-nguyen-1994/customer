@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item active">{{ trans('customer::customer.edit.breadcrumb') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">{{ __('customer::customer.create.page_title') }}</h4>
+                <h4 class="page-title">{{ __('customer::customer.edit.page_title') }}</h4>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <h5 class="fs-17 font-weight-600 mb-0">
-                            {{ __('customer::customer.edit.page_title') }}
+                            {{ __('customer::customer.edit.page_title') }} "{{ $item->name }}"
                         </h5>
                     </div>
                     <div class="text-right">

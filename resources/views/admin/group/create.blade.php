@@ -2,10 +2,6 @@
 
 @section('meta_title', __('customer::group.create.page_title'))
 
-@section('page_title', __('customer::group.create.page_title'))
-
-@section('page_subtitle', __('customer::group.create.page_subtitle'))
-
 @section('content-header')
     <div class="row">
         <div class="col-12">
@@ -17,7 +13,7 @@
                         <li class="breadcrumb-item active">{{ trans('customer::group.create.breadcrumb') }}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">{{ __('catalog::category.create.page_title') }}</h4>
+                <h4 class="page-title">{{ __('customer::group.create.page_title') }}</h4>
             </div>
         </div>
     </div>
@@ -31,9 +27,9 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h6 class="fs-17 font-weight-600 mb-0">
+                        <h4 class="fs-17 font-weight-600 mb-0">
                             {{ __('customer::group.create.page_title') }}
-                        </h6>
+                        </h4>
                     </div>
                     <div class="text-right">
 	                    <div class="btn-group">

@@ -32,62 +32,61 @@
 @endsection
 
 @section('content')
-    <div class="card mb-4">
-        <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <h5 class="fs-17 font-weight-600 mb-0">
-                        {{ __('customer::group.index.page_title') }}
-                    </h5>
-                </div>
-                <div class="text-right">
-                    <div class="actions">
-	                    @admincan('customer.admin.group.create')
-	                        <a href="{{ route('customer.admin.group.create') }}" class="action-item">
-	                            <i class="fa fa-plus"></i>
-	                            {{ __('core::button.add') }}
-	                        </a>
-                        @endadmincan
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="mb-2">
+                        <div class="row">
+                            <div class="col-12 text-sm-center form-inline">
+                                <div class="form-group mr-2">
+                                    <a id="demo-btn-addrow" class="btn btn-primary" href="{{ route('customer.admin.group.create') }}"><i class="mdi mdi-plus-circle mr-2"></i> Add New</a>
+                                </div>
+                                <div class="form-group">
+                                    <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-centered table-striped table-bordered mb-0 toggle-circle">
+                            <thead>
+                            <tr>
+                                <th>{{ __('ID') }}</th>
+                                <th>{{ __('customer::group.name') }}</th>
+                                <th>{{ __('customer::group.created_at') }}</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($items as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>
+                                        <a href="{{ route('customer.admin.group.edit', $item->id) }}">
+                                            {{ $item->name }}
+                                        </a>
+                                    </td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td class="text-right">
+                                        @admincan('customer.admin.group.edit')
+                                        <a href="{{ route('customer.admin.group.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
+                                            <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -5px; margin-top: 5px"></i>
+                                        </a>
+                                        @endadmincan
+                                        @admincan('customer.admin.group.destroy')
+                                            <button-delete url-delete="{{ route('customer.admin.group.destroy', $item->id) }}"></button-delete>
+                                        @endadmincan
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+
+                        {!! $items->appends(Request::all())->render() !!}
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card-body">
-            <table class="table table-striped table-bordered dt-responsive nowrap bootstrap4-styling">
-                <thead>
-                <tr>
-                    <th>{{ __('ID') }}</th>
-                    <th>{{ __('customer::group.name') }}</th>
-                    <th>{{ __('customer::group.created_at') }}</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($items as $item)
-                    <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>
-                            <a href="{{ route('customer.admin.group.edit', $item->id) }}">
-                                {{ $item->name }}
-                            </a>
-                        </td>
-                        <td>{{ $item->created_at }}</td>
-                        <td class="text-right">
-                            @admincan('customer.admin.group.edit')
-                                <a href="{{ route('customer.admin.group.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
-                                    <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -6px; margin-top: 4px"></i>
-                                </a>
-                            @endadmincan
-                            @admincan('customer.admin.group.destroy')
-                                <button-delete url-delete="{{ route('customer.admin.group.destroy', $item->id) }}"></button-delete>
-                            @endadmincan
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-
-            {{--{!! $items->appends(Request::all())->render() !!}--}}
         </div>
     </div>
 @stop
