@@ -114,12 +114,24 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
     {
         Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
 
-            $menu->add('Customer', ['id' => 'customer'])->data('order', 2000)->prepend('<i class="fas fa-users"></i>');
-            $menu->add('Customer', ['route' => 'customer.admin.customer.index', 'parent' => $menu->customer->id])->prepend('<i class="fas fa-user-tie"></i>');
-            $menu->add('Customer Group', ['route' => 'customer.admin.group.index', 'parent' => $menu->customer->id])->prepend('<i class="fas fa-object-ungroup"></i>');
+            $menu->add(__('customer::menu.customer.index'))->nickname('customer_root')->data('order', 4000)->prepend('<i class="fas fa-users"></i>');
+
+            $menu->add(__('customer::menu.customer.index'), [
+                'route' => 'customer.admin.customer.index',
+                'parent' => $menu->customer_root->id
+            ])->nickname('customer')->prepend('<i class="fas fa-user-tie"></i>');
+
+            $menu->add(__('customer::menu.group.index'), [
+                'route' => 'customer.admin.group.index',
+                'parent' => $menu->customer_root->id
+            ])->nickname('customer_group')->prepend('<i class="fas fa-object-ungroup"></i>');
+
+            $menu->add(__('customer::menu.attribute.index'), [
+                'route' => 'customer.admin.customer-attribute.index',
+                'parent' => $menu->attribute->id
+            ])->data('order', 4)->prepend('<i class="fab fa-500px"></i>');
 
             event(CustomerAdminMenuRegistered::class, $menu);
         });
-
     }
 }

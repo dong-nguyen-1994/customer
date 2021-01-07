@@ -62,7 +62,7 @@ return [
     'tabs' => [
         'information' => 'Thông tin khách hàng',
         'address'     => 'Địa chỉ',
-        'extension'   => 'Mở rộng thuộc tính',
+        'attribute'   => 'Thuộc tính',
     ],
 
     'delete' => 'Xóa chọn',

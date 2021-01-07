@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Dnsoft\Eav\Traits\HasAttributeTrait;
 use Dnsoft\Media\Traits\HasMediaTrait;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Module\Customer\Models\Customer
@@ -65,6 +66,9 @@ class Customer extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use HasAttributeTrait;
     use HasMediaTrait;
+    use LogsActivity;
+
+    protected static $logName = 'customer_customer';
 
     protected $table = 'customer__customers';
 

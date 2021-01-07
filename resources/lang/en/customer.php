@@ -62,7 +62,7 @@ return [
     'tabs' => [
         'information' => 'Customer Information',
         'address'     => 'Address',
-        'extension'   => 'Extension Field',
+        'attribute'   => 'Attribute',
     ],
 
     'delete' => 'Delete Selected',

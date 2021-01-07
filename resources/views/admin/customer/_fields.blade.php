@@ -48,6 +48,13 @@
             {{ __('customer::customer.tabs.address') }}
         </a>
     </li>
+    @if(get_all_attributes_of_type(\Module\Customer\Models\Customer::class)->count())
+        <li class="nav-item">
+            <a class="nav-link save-tab" data-toggle="pill" href="#customerAttribute" id="catalogProductAttributeTab">
+                {{ __('customer::customer.tabs.attribute') }}
+            </a>
+        </li>
+    @endif
 </ul>
 
 <div class="tab-content">
@@ -130,6 +137,10 @@
             <i class="fa fa-plus"></i>
             {{ __('customer::customer.add_address') }}
         </a>
+    </div>
+
+    <div class="tab-pane fade" id="customerAttribute">
+        @attributes(['entityType' => \Module\Customer\Models\Customer::class])
     </div>
 </div>
 

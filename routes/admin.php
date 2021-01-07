@@ -3,7 +3,7 @@
 use Module\Customer\Http\Controllers\Admin\CustomerController;
 use Module\Customer\Http\Controllers\Admin\AddressController;
 use Module\Customer\Http\Controllers\Admin\GroupController;
-use Module\Customer\Http\Controllers\Admin\AttributeController;
+use Module\Customer\Http\Controllers\Admin\CustomerAttributeController;
 
 Route::prefix('customer')->group(function () {
     Route::prefix('customer')->group(function () {
@@ -84,29 +84,29 @@ Route::prefix('customer')->group(function () {
             ->middleware('admin.can:customer.admin.group.destroy');
     });
 
-    Route::prefix('attribute')->group(function () {
-        Route::get('', [AttributeController::class, 'index'])
-            ->name('customer.admin.attribute.index')
-            ->middleware('admin.can:customer.admin.attribute.index');
+    Route::prefix('customer-attribute')->group(function () {
+        Route::get('', [CustomerAttributeController::class, 'index'])
+            ->name('customer.admin.customer-attribute.index')
+            ->middleware('admin.can:customer.admin.customer-attribute.index');
 
-        Route::get('create', [AttributeController::class, 'create'])
-            ->name('customer.admin.attribute.create')
-            ->middleware('admin.can:customer.admin.attribute.create');
+        Route::get('create', [CustomerAttributeController::class, 'create'])
+            ->name('customer.admin.customer-attribute.create')
+            ->middleware('admin.can:customer.admin.customer-attribute.create');
 
-        Route::post('/', [AttributeController::class, 'store'])
-            ->name('customer.admin.attribute.store')
-            ->middleware('admin.can:customer.admin.attribute.create');
+        Route::post('/', [CustomerAttributeController::class, 'store'])
+            ->name('customer.admin.customer-attribute.store')
+            ->middleware('admin.can:customer.admin.customer-attribute.create');
 
-        Route::get('{id}/edit', [AttributeController::class, 'edit'])
-            ->name('customer.admin.attribute.edit')
-            ->middleware('admin.can:customer.admin.attribute.edit');
+        Route::get('{id}/edit', [CustomerAttributeController::class, 'edit'])
+            ->name('customer.admin.customer-attribute.edit')
+            ->middleware('admin.can:customer.admin.customer-attribute.edit');
 
-        Route::put('{id}', [AttributeController::class, 'update'])
-            ->name('customer.admin.attribute.update')
-            ->middleware('admin.can:customer.admin.attribute.edit');
+        Route::put('{id}', [CustomerAttributeController::class, 'update'])
+            ->name('customer.admin.customer-attribute.update')
+            ->middleware('admin.can:customer.admin.customer-attribute.edit');
 
-        Route::delete('{id}', [AttributeController::class, 'destroy'])
-            ->name('customer.admin.attribute.destroy')
-            ->middleware('admin.can:customer.admin.attribute.destroy');
+        Route::delete('{id}', [CustomerAttributeController::class, 'destroy'])
+            ->name('customer.admin.customer-attribute.destroy')
+            ->middleware('admin.can:customer.admin.customer-attribute.destroy');
     });
 });

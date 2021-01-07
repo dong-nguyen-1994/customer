@@ -3,6 +3,7 @@
 namespace Module\Customer\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Module\Customer\Models\Group
@@ -26,6 +27,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Group extends Model
 {
+    use LogsActivity;
+
+    protected static $logName = 'customer_group';
+
     protected $table = 'customer__groups';
 
     protected $fillable = [

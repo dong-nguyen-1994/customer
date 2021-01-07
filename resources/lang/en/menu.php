@@ -13,6 +13,6 @@ return [
     ],
 
     'attribute' => [
-        'index' => 'Attribute',
+        'index' => 'Customer Attribute',
     ],
 ];

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Module\ZoneModule\Models\ZoneDistrict;
 use Module\ZoneModule\Models\ZoneProvince;
 use Module\ZoneModule\Models\ZoneTownship;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Module\Customer\Models\Address
@@ -51,7 +52,11 @@ use Module\ZoneModule\Models\ZoneTownship;
  */
 class Address extends Model
 {
+    use LogsActivity;
+
     protected $table = 'customer__addresses';
+
+    protected static $logName = 'customer_addresses';
 
     protected $fillable = [
         'customer_id',
