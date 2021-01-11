@@ -20,4 +20,11 @@ return [
         'edit'    => 'Edit Group',
         'destroy' => 'Delete Group',
     ],
+    'attribute' => [
+        'label'   => 'Customer Attribute',
+        'index'   => 'List Customer Attribute',
+        'create'  => 'Create Customer Attribute',
+        'edit'    => 'Edit Customer Attribute',
+        'destroy' => 'Delete Customer Attribute',
+    ],
 ];

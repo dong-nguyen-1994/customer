@@ -1,41 +1,41 @@
-<script>
-    function checkAddressItem(baseId, itemClass) {
-        var baseCheck = $('#' + baseId).is(":checked");
-        $('.' + itemClass).each(function() {
-            if (!$(this).is(':disabled')) {
-                $(this).prop('checked', baseCheck);
-            }
-        });
-    }
+{{--<script>--}}
+{{--    function checkAddressItem(baseId, itemClass) {--}}
+{{--        var baseCheck = $('#' + baseId).is(":checked");--}}
+{{--        $('.' + itemClass).each(function() {--}}
+{{--            if (!$(this).is(':disabled')) {--}}
+{{--                $(this).prop('checked', baseCheck);--}}
+{{--            }--}}
+{{--        });--}}
+{{--    }--}}
 
-    function deleteCheckedAddressItem() {
-        let arrayMediaIds = [];
-        $('input:checkbox.itemAddress').each(function () {
-            var sThisVal = (this.checked ? $(this).val() : "");
-            if (sThisVal) {
-                arrayMediaIds.push(sThisVal);
-            }
-        });
-        if (arrayMediaIds.length > 0) {
-            $.ajax({
-                url: adminPath + '/customer/customer/' + JSON.stringify(arrayMediaIds),
-                method: 'DELETE',
-                data: {
-                    "_token": "{{ csrf_token() }}"
-                },
-                success: function (response) {
-                    location.reload();
-                },
-                error: function (e) {
-                    console.log(e)
-                }
-            });
-        } else {
-            alert('Please choose at least a item.')
-        }
-    }
+{{--    function deleteCheckedAddressItem() {--}}
+{{--        let arrayMediaIds = [];--}}
+{{--        $('input:checkbox.itemAddress').each(function () {--}}
+{{--            var sThisVal = (this.checked ? $(this).val() : "");--}}
+{{--            if (sThisVal) {--}}
+{{--                arrayMediaIds.push(sThisVal);--}}
+{{--            }--}}
+{{--        });--}}
+{{--        if (arrayMediaIds.length > 0) {--}}
+{{--            $.ajax({--}}
+{{--                url: adminPath + '/customer/customer/' + JSON.stringify(arrayMediaIds),--}}
+{{--                method: 'DELETE',--}}
+{{--                data: {--}}
+{{--                    "_token": "{{ csrf_token() }}"--}}
+{{--                },--}}
+{{--                success: function (response) {--}}
+{{--                    location.reload();--}}
+{{--                },--}}
+{{--                error: function (e) {--}}
+{{--                    console.log(e)--}}
+{{--                }--}}
+{{--            });--}}
+{{--        } else {--}}
+{{--            alert('Please choose at least a item.')--}}
+{{--        }--}}
+{{--    }--}}
 
-</script>
+{{--</script>--}}
 
 <ul class="nav nav-tabs scrollable">
     <li class="nav-item">
@@ -76,8 +76,6 @@
                 ]])
                 @input(['name' => 'password', 'label' => __('customer::customer.password'), 'type' => 'password'])
                 @input(['name' => 'password_confirmation', 'label' => __('customer::customer.password_confirmation'), 'type' => 'password'])
-
-                @attributes(['entityType' => \Module\Customer\Models\Customer::class])
             </div>
         </div>
     </div>
