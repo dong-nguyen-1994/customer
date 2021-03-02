@@ -38,13 +38,19 @@
                 <div class="card-box">
                     <div class="mb-2">
                         <div class="row">
-                            <div class="col-12 text-sm-center form-inline">
+                            <div class="col-8 text-sm-center form-inline">
                                 <div class="form-group mr-2">
                                     <a id="demo-btn-addrow" class="btn btn-primary" href="{{ route('customer.admin.group.create') }}"><i class="mdi mdi-plus-circle mr-2"></i> Add New</a>
                                 </div>
-                                <div class="form-group">
-                                    <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
-                                </div>
+                                <form action="">
+                                    <div class="form-group">
+                                        <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
+                                        <input type="submit" value="Search" class="btn btn-secondary ml-5">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-4 text-sm-right">
+                                <button class="btn btn-info" data-url="" id="btnExportProduct"><i class="fa fa-download"></i>Export</button>
                             </div>
                         </div>
                     </div>

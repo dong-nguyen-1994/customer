@@ -116,8 +116,9 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
     {
         Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
 
-            $menu->add(__('customer::menu.customer.index'))
-                ->nickname('customer_root')->data('order', 4000)->prepend('<i class="fas fa-users"></i>');
+            $menu->add(__('customer::menu.customer.index'), [
+                'parent' => 'ecommerce',
+            ])->nickname('customer_root')->data('order', 4000)->prepend('<i class="fas fa-users"></i>');
 
             $menu->add(__('customer::menu.customer.index'), [
                 'route' => 'customer.admin.customer.index',
