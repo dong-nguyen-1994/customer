@@ -1,5 +1,5 @@
 {
-    "name": "dnsoft/module-customer",
+    "name": "dnsoft/customer",
     "description": "Module Customer",
     "keywords": [
         "module"
@@ -16,9 +16,6 @@
     ],
     "type": "library",
     "require": {
-        "dnsoft/core": "dev-master",
-        "dnsoft/module-zone": "dev-master",
-        "dnsoft/eav": "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -32,6 +29,5 @@
             ]
         }
     },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }
