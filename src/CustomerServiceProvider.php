@@ -114,10 +114,19 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
 
     public function registerAdminMenus()
     {
-        Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
 
+        $eventAdminMenu = CoreAdminMenuRegistered::class;
+        $parent = null;
+        $order = 5000;
+
+        if (class_exists('Module\Ecommerce\Events\EcommerceAdminMenuRegistered')) {
+            $eventAdminMenu = 'Module\Ecommerce\Events\EcommerceAdminMenuRegistered';
+            $parent = 'ecommerce';
+            $order = 20;
+        }
+        Event::listen($eventAdminMenu, function ($menu) use ($order, $parent) {
             $menu->add(__('customer::menu.customer.index'), [
-                'parent' => 'ecommerce',
+                'parent' => $parent,
             ])->nickname('customer_root')->data('order', 4000)->prepend('<i class="fas fa-users"></i>');
 
             $menu->add(__('customer::menu.customer.index'), [
@@ -136,6 +145,31 @@ class CustomerServiceProvider extends BaseModuleServiceProvider
             ])->data('order', 4)->prepend('<i class="fab fa-500px"></i>');
 
             event(CustomerAdminMenuRegistered::class, $menu);
+
         });
+
+//        Event::listen(CoreAdminMenuRegistered::class, function ($menu) {
+//
+//            $menu->add(__('customer::menu.customer.index'), [
+//                'parent' => 'ecommerce',
+//            ])->nickname('customer_root')->data('order', 4000)->prepend('<i class="fas fa-users"></i>');
+//
+//            $menu->add(__('customer::menu.customer.index'), [
+//                'route' => 'customer.admin.customer.index',
+//                'parent' => $menu->customer_root->id
+//            ])->nickname('customer')->prepend('<i class="fas fa-user-tie"></i>');
+//
+//            $menu->add(__('customer::menu.group.index'), [
+//                'route' => 'customer.admin.group.index',
+//                'parent' => $menu->customer_root->id
+//            ])->nickname('customer_group')->prepend('<i class="fas fa-object-ungroup"></i>');
+//
+//            $menu->add(__('customer::menu.attribute.index'), [
+//                'route' => 'customer.admin.customer-attribute.index',
+//                'parent' => $menu->attribute->id
+//            ])->data('order', 4)->prepend('<i class="fab fa-500px"></i>');
+//
+//            event(CustomerAdminMenuRegistered::class, $menu);
+//        });
     }
 }
